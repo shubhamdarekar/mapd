@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -11,11 +10,8 @@ import './otp_input.dart';
 class OTPScreen extends StatefulWidget {
   final String mobileNumber;
   final bool isLinking;
-  OTPScreen({
-    Key key,
-    @required this.mobileNumber,
-    this.isLinking
-  })  : assert(mobileNumber != null),
+  OTPScreen({Key key, @required this.mobileNumber, this.isLinking})
+      : assert(mobileNumber != null),
         super(key: key);
 
   @override
@@ -150,7 +146,6 @@ class _OTPScreenState extends State<OTPScreen> {
         msg: message,
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.CENTER,
-        
         backgroundColor: color,
         textColor: Colors.white,
         fontSize: 16.0);
@@ -168,14 +163,15 @@ class _OTPScreenState extends State<OTPScreen> {
         if (value.user != null) {
           // Handle loogged in state
           print(value.user.phoneNumber);
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomePage(
-                  user: value.user,
-                ),
-              ),
-              (Route<dynamic> route) => false);
+          // Navigator.pushAndRemoveUntil(
+          //     context,
+          //     MaterialPageRoute(
+          //       builder: (context) => HomePage(
+          //         user: value.user,
+          //       ),
+          //     ),
+          //     (Route<dynamic> route) => false);
+          Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
         } else {
           showToast("Error validating OTP, try again", Colors.red);
         }
@@ -218,17 +214,21 @@ class _OTPScreenState extends State<OTPScreen> {
   }
 
   Future<void> _onFormSubmitted() async {
-    if(widget.isLinking!=null){
-    await Provider.of<AuthService>(context,listen: false).linkPhone(pin: _pinEditingController.text,verificationId: _verificationId,context:context);
-    }else{
-    await Provider.of<AuthService>(context,listen: false).loginUser(pin: _pinEditingController.text,verificationId: _verificationId,context:context);
+    if (widget.isLinking != null) {
+      await Provider.of<AuthService>(context, listen: false).linkPhone(
+          pin: _pinEditingController.text,
+          verificationId: _verificationId,
+          context: context);
+    } else {
+      await Provider.of<AuthService>(context, listen: false).loginUser(
+          pin: _pinEditingController.text,
+          verificationId: _verificationId,
+          context: context);
     }
     return;
-    
-    
+
     // AuthCredential _authCredential = PhoneAuthProvider.getCredential(
     //     verificationId: _verificationId, smsCode: _pinEditingController.text);
-        
 
     // _firebaseAuth
     //     .signInWithCredential(_authCredential)
@@ -244,7 +244,7 @@ class _OTPScreenState extends State<OTPScreen> {
     //     //       ),
     //     //     ),
     //     //     (Route<dynamic> route) => false);
-        
+
     //   } else {
     //     showToast("Error validating OTP, try again", Colors.red);
     //   }

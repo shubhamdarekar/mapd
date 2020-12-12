@@ -18,7 +18,7 @@ class AuthService with ChangeNotifier {
   Future logout() async {
     await googleSignIn.signOut();
     var result = await FirebaseAuth.instance.signOut();
-    await getUser();
+    var us = await getUser();
     notifyListeners();
     return result;
   }
@@ -58,6 +58,7 @@ class AuthService with ChangeNotifier {
             _store.collection('users').document(authResult.user.uid).updateData(
                 {"last_logged_in": new DateTime.now().millisecondsSinceEpoch});
           }
+          notifyListeners();
         } else {
           showToast("Error validating OTP, try again", Colors.red);
         }
@@ -182,9 +183,10 @@ class AuthService with ChangeNotifier {
     authResult = await user.linkWithCredential(_authCredential);
     print(authResult.toString());
 
-    _store.collection('users').document(authResult.user.uid).updateData({
-      "phone":authResult.user.phoneNumber
-    });
+    _store
+        .collection('users')
+        .document(authResult.user.uid)
+        .updateData({"phone": authResult.user.phoneNumber});
     await user.reload();
     Navigator.pop(context);
     Navigator.maybePop(context);

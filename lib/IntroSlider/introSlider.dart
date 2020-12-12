@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
@@ -13,7 +12,6 @@ class IntroScreen extends StatefulWidget {
   IntroScreenState createState() => new IntroScreenState();
 }
 
-
 class IntroScreenState extends State<IntroScreen> {
   List<Slide> slides = new List();
 
@@ -25,43 +23,60 @@ class IntroScreenState extends State<IntroScreen> {
 
     slides.add(
       new Slide(
-        title: "SCHOOL",
-        styleTitle:
-            TextStyle(color: Color(0xff3da4ab), fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
-        description:
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-        styleDescription:
-            TextStyle(color: Color(0xfffe9c8f), fontSize: 20.0, fontStyle: FontStyle.italic, fontFamily: 'Raleway'),
-        pathImage: "images/photo_school.png",
+        title: "Navigation",
+        // backgroundColor: Color(0xff3da4d),
+        styleTitle: TextStyle(
+            color: Color(0xff3da4ab),
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'RobotoMono'),
+        description: "One stop solution to all the navigation problem",
+        styleDescription: TextStyle(
+            color: Color(0xfffe9c8f),
+            fontSize: 20.0,
+            fontStyle: FontStyle.italic,
+            fontFamily: 'Raleway'),
+        pathImage: "assets/images/navigation.jpg",
       ),
     );
     slides.add(
       new Slide(
-        title: "MUSEUM",
-        styleTitle:
-            TextStyle(color: Color(0xff3da4ab), fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
-        description: "Ye indulgence unreserved connection alteration appearance",
-        styleDescription:
-            TextStyle(color: Color(0xfffe9c8f), fontSize: 20.0, fontStyle: FontStyle.italic, fontFamily: 'Raleway'),
-        pathImage: "images/photo_museum.png",
+        title: "Picture Maps",
+        styleTitle: TextStyle(
+            color: Color(0xff3da4ab),
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'RobotoMono'),
+        description: "3D construction of the place through users",
+        styleDescription: TextStyle(
+            color: Color(0xfffe9c8f),
+            fontSize: 20.0,
+            fontStyle: FontStyle.italic,
+            fontFamily: 'Raleway'),
+        pathImage: "assets/images/maps.png",
       ),
     );
     slides.add(
       new Slide(
-        title: "COFFEE SHOP",
-        styleTitle:
-            TextStyle(color: Color(0xff3da4ab), fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
-        description:
-            "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
-        styleDescription:
-            TextStyle(color: Color(0xfffe9c8f), fontSize: 20.0, fontStyle: FontStyle.italic, fontFamily: 'Raleway'),
-        pathImage: "images/photo_coffee_shop.png",
+        title: "Indoor Navigation",
+        styleTitle: TextStyle(
+            color: Color(0xff3da4ab),
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'RobotoMono'),
+        description: "Accurate indoor navigation of places. ",
+        styleDescription: TextStyle(
+            color: Color(0xfffe9c8f),
+            fontSize: 20.0,
+            fontStyle: FontStyle.italic,
+            fontFamily: 'Raleway'),
+        pathImage: "assets/images/indoor.png",
       ),
     );
   }
 
   void onDonePress() {
-    Provider.of<AuthService>(context,listen: false).setFirstTime();
+    Provider.of<AuthService>(context, listen: false).setFirstTime();
   }
 
   void onTabChangeCompleted(index) {

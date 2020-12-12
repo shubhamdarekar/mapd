@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:mapd/Providers/AuthService.dart';
 import 'package:mapd/loginSignup/PhoneAuth/phone_auth.dart';
@@ -23,9 +22,9 @@ class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
         color: Colors.redAccent,
         image: DecorationImage(
           colorFilter: new ColorFilter.mode(
-              Colors.black.withOpacity(0.3), BlendMode.dstATop),
-          image: AssetImage('assets/images/mountains.jpg'),
-          fit: BoxFit.cover,
+              Colors.black.withOpacity(0.3), BlendMode.exclusion),
+          image: AssetImage('assets/images/logo.png'),
+          fit: BoxFit.contain,
         ),
       ),
       child: new Column(
@@ -46,7 +45,7 @@ class _AuthScreenState extends State<AuthScreen> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Zentors",
+                  "mapD",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
