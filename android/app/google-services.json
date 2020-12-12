@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "419652046559",
+    "firebase_url": "https://mapd-47415.firebaseio.com",
+    "project_id": "mapd-47415",
+    "storage_bucket": "mapd-47415.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419652046559:android:d7f36741e50ab4722e636a",
+        "android_client_info": {
+          "package_name": "com.learnx.mapd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419652046559-antso1dltvh7sq4s7fdf6ns51j7olsq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtHu92U-x6fl9gqIONNguNsuRXfN2J2PU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419652046559-antso1dltvh7sq4s7fdf6ns51j7olsq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
