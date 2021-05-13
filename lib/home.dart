@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:mapd/TakePicture.dart';
+import 'package:mapd/mainHome.dart';
 
 import 'package:provider/provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -112,28 +113,29 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Stack(
-          children: [
-            GoogleMap(
-              initialCameraPosition:
-                  CameraPosition(target: _initialcameraposition),
-              mapType: MapType.hybrid,
-              onMapCreated: _onMapCreated,
-              myLocationEnabled: true,
-              buildingsEnabled: true,
-              zoomControlsEnabled: false,
-              indoorViewEnabled: true,
-              // compassEnabled: true,
-              myLocationButtonEnabled: true,
-              // trafficEnabled: true,
-              onLongPress: _longPress,
-            ),
-          ],
-        ),
-      ),
+      body: HomePageApp(),
+      // Container(
+      //   height: MediaQuery.of(context).size.height,
+      //   width: MediaQuery.of(context).size.width,
+      //   child: Stack(
+      //     children: [
+      //       GoogleMap(
+      //         initialCameraPosition:
+      //             CameraPosition(target: _initialcameraposition),
+      //         mapType: MapType.hybrid,
+      //         onMapCreated: _onMapCreated,
+      //         myLocationEnabled: true,
+      //         buildingsEnabled: true,
+      //         zoomControlsEnabled: false,
+      //         indoorViewEnabled: true,
+      //         // compassEnabled: true,
+      //         myLocationButtonEnabled: true,
+      //         // trafficEnabled: true,
+      //         onLongPress: _longPress,
+      //       ),
+      //     ],
+      //   ),
+      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {
           Navigator.push(
